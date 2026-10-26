@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: redis-idempotency-api
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      connect-timeout: 2s
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+info:
+  app:
+    name: Redis Idempotency API
+    description: Demonstration of Redis-backed idempotent REST requests
